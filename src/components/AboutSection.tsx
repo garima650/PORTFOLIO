@@ -1,4 +1,4 @@
-import { GraduationCap, Sparkles, Target, Rocket } from 'lucide-react';
+import { GraduationCap, Sparkles, Target, Rocket, Music, Palette, Users } from 'lucide-react';
 
 const timelineData = [
   {
@@ -68,6 +68,28 @@ export const AboutSection = () => {
                   My goal is to contribute to the development of AI systems that automate mundane tasks 
                   and make technology more accessible and intelligent for everyone.
                 </p>
+              </div>
+
+              {/* Extracurricular Activities */}
+              <div className="pt-4 border-t border-white/10">
+                <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                  Extracurricular Activities
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    { icon: Music, label: 'Singing' },
+                    { icon: Palette, label: 'Crafting' },
+                    { icon: Users, label: 'Women Empowerment' },
+                  ].map((activity) => (
+                    <span
+                      key={activity.label}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary font-medium"
+                    >
+                      <activity.icon className="w-4 h-4" />
+                      {activity.label}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 

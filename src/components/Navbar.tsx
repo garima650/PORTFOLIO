@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Linkedin } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -34,7 +34,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-display font-bold text-primary-foreground text-lg transition-transform duration-300 group-hover:scale-110">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-display font-bold text-primary-foreground text-lg transition-transform duration-300 group-hover:scale-110">
               GA
             </div>
             <span className="font-display font-semibold text-lg hidden sm:block">
@@ -56,8 +56,17 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* LinkedIn + CTA Button */}
+          <div className="hidden lg:flex items-center gap-4">
+            <a
+              href="https://www.linkedin.com/in/garima-agarwal-1a9645378"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-muted-foreground hover:text-primary transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} />
+            </a>
             <a
               href="#contact"
               className="btn-primary-glow text-sm"
@@ -96,6 +105,16 @@ export const Navbar = () => {
               {link.name}
             </a>
           ))}
+          <a
+            href="https://www.linkedin.com/in/garima-agarwal-1a9645378"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-lg font-medium text-muted-foreground hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <Linkedin size={20} />
+            LinkedIn
+          </a>
           <a
             href="#contact"
             className="btn-primary-glow w-full text-center mt-4"

@@ -109,7 +109,7 @@
 
   /* Hero button variants */
   .btn-primary-glow {
-    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-primary-foreground bg-primary rounded-lg overflow-hidden transition-all duration-300;
+    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-primary-foreground bg-primary rounded-full overflow-hidden transition-all duration-300;
   }
 
   .btn-primary-glow::before {
@@ -128,7 +128,7 @@
   }
 
   .btn-outline-glow {
-    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-primary border-2 border-primary/50 rounded-lg overflow-hidden transition-all duration-300 bg-transparent;
+    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-primary border-2 border-primary/50 rounded-full overflow-hidden transition-all duration-300 bg-transparent;
   }
 
   .btn-outline-glow:hover {
