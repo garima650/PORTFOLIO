@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AI Futuristic Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 185 100% 50%;
+    --primary-foreground: 222 47% 5%;
+
+    --secondary: 270 100% 65%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 185 100% 50%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 185 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --glow-cyan: 185 100% 50%;
+    --glow-purple: 270 100% 65%;
+    --glass-bg: 222 47% 10%;
+    --glass-border: 222 30% 25%;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply relative overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl;
+    box-shadow: 
+      0 8px 32px rgba(0, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500;
+  }
+
+  .glass-card-hover:hover {
+    @apply border-primary/30;
+    box-shadow: 
+      0 8px 32px rgba(0, 255, 255, 0.15),
+      0 0 60px rgba(0, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  /* Glow effects */
+  .glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--glow-cyan) / 0.4), 0 0 40px hsl(var(--glow-cyan) / 0.2);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px hsl(var(--glow-purple) / 0.4), 0 0 40px hsl(var(--glow-purple) / 0.2);
+  }
+
+  /* Hero button variants */
+  .btn-primary-glow {
+    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-primary-foreground bg-primary rounded-lg overflow-hidden transition-all duration-300;
+  }
+
+  .btn-primary-glow::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary opacity-0 transition-opacity duration-300;
+    background-size: 200% auto;
+  }
+
+  .btn-primary-glow:hover::before {
+    @apply opacity-100;
+    animation: gradient-shift 2s ease infinite;
+  }
+
+  .btn-primary-glow:hover {
+    @apply glow-cyan scale-105;
+  }
+
+  .btn-outline-glow {
+    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold text-primary border-2 border-primary/50 rounded-lg overflow-hidden transition-all duration-300 bg-transparent;
+  }
+
+  .btn-outline-glow:hover {
+    @apply border-primary bg-primary/10 glow-cyan scale-105;
+  }
+
+  /* Section styling */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl;
+  }
+
+  /* Modern Skill bar */
+  .skill-bar-modern {
+    @apply relative h-3 flex items-center;
+  }
+
+  .skill-bar-track {
+    @apply relative w-full h-2 bg-muted/50 rounded-full overflow-hidden;
+  }
+
+  .skill-bar-fill-modern {
+    @apply absolute inset-y-0 left-0 bg-gradient-to-r from-primary via-secondary to-primary rounded-full;
+    width: 0;
+    animation: skill-fill 1s ease-out forwards;
+    background-size: 200% 100%;
+  }
+
+  .skill-bar-glow {
+    @apply absolute inset-y-0 left-0 bg-gradient-to-r from-primary/50 to-secondary/50 rounded-full blur-sm;
+    width: 0;
+    animation: skill-fill 1s ease-out forwards;
+  }
+
+  .skill-bar-dot {
+    @apply absolute w-4 h-4 rounded-full bg-primary border-2 border-background shadow-lg;
+    left: 0;
+    transform: translateX(-50%);
+    animation: skill-dot 1s ease-out forwards;
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  /* Legacy skill bar (keep for compatibility) */
+  .skill-bar {
+    @apply relative h-2 bg-muted rounded-full overflow-hidden;
+  }
+
+  .skill-bar-fill {
+    @apply h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-1000 ease-out;
+  }
+
+  /* Neural network background */
+  .neural-bg {
+    @apply fixed inset-0 -z-10 overflow-hidden;
+    background: 
+      radial-gradient(ellipse at 20% 20%, hsl(var(--glow-purple) / 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, hsl(var(--glow-cyan) / 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, hsl(var(--glow-cyan) / 0.05) 0%, transparent 70%),
+      hsl(var(--background));
+  }
+
+  /* Grid pattern overlay */
+  .grid-pattern {
+    @apply absolute inset-0 opacity-20;
+    background-image: 
+      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-in-left {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slide-in-right {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scale-in {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes spin-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+
+  @keyframes skill-fill {
+    0% { width: 0; }
+    100% { width: var(--skill-width); }
+  }
+
+  @keyframes skill-dot {
+    0% { left: 0; opacity: 0; transform: translateX(-50%) scale(0); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+    100% { left: var(--skill-width); opacity: 1; transform: translateX(-50%) scale(1); }
+  }
+
+  @keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .animate-spin-reverse {
+    animation: spin-reverse 15s linear infinite;
+  }
+
+  .animate-pop-in {
+    animation: pop-in 0.4s ease-out forwards;
+  }
+
+  .animation-delay-100 { animation-delay: 0.1s; }
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-300 { animation-delay: 0.3s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
+  .animation-delay-500 { animation-delay: 0.5s; }
+  .animation-delay-600 { animation-delay: 0.6s; }
+}
