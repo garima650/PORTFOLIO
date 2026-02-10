@@ -83,20 +83,20 @@ export const ContactSection = () => {
       <div className="section-container relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4 opacity-0 animate-fade-in-up">
             Get in Touch
           </span>
-          <h2 className="section-title">
+          <h2 className="section-title opacity-0 animate-fade-in-up animation-delay-100">
             Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className="section-subtitle mx-auto mt-4">
+          <p className="section-subtitle mx-auto mt-4 opacity-0 animate-fade-in-up animation-delay-200">
             Have a question or want to work together? Feel free to reach out!
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Contact Info */}
-          <div>
+          <div className="opacity-0 animate-slide-in-left animation-delay-300">
             <h3 className="font-display text-2xl font-semibold mb-8">
               Contact Information
             </h3>
@@ -161,7 +161,7 @@ export const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div>
+          <div className="opacity-0 animate-slide-in-right animation-delay-300">
             <h3 className="font-display text-2xl font-semibold mb-8">
               Send a Message
             </h3>
