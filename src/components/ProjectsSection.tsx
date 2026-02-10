@@ -39,13 +39,13 @@ export const ProjectsSection = () => {
       <div className="section-container relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4 opacity-0 animate-fade-in-up">
             Portfolio
           </span>
-          <h2 className="section-title">
+          <h2 className="section-title opacity-0 animate-fade-in-up animation-delay-100">
             Projects <span className="gradient-text">In Progress</span>
           </h2>
-          <p className="section-subtitle mx-auto mt-4">
+          <p className="section-subtitle mx-auto mt-4 opacity-0 animate-fade-in-up animation-delay-200">
             Building exciting solutions and learning through hands-on experience
           </p>
         </div>
@@ -55,7 +55,8 @@ export const ProjectsSection = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative"
+              className="group relative opacity-0 animate-fade-in-up"
+              style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'forwards' }}
             >
               {/* Gradient border effect */}
               <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${project.borderGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`} />
@@ -122,7 +123,7 @@ export const ProjectsSection = () => {
 
         {/* Coming Soon Message */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 border border-primary/20">
+          <div className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 border border-primary/20 opacity-0 animate-fade-in-up animation-delay-600">
             <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
             <span className="text-muted-foreground">
               More projects coming soon! Currently building exciting solutions...

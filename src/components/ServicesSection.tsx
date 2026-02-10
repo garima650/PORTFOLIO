@@ -33,13 +33,13 @@ export const ServicesSection = () => {
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4 opacity-0 animate-fade-in-up">
             Services
           </span>
-          <h2 className="section-title">
+          <h2 className="section-title opacity-0 animate-fade-in-up animation-delay-100">
             What I <span className="gradient-text">Offer</span>
           </h2>
-          <p className="section-subtitle mx-auto mt-4">
+          <p className="section-subtitle mx-auto mt-4 opacity-0 animate-fade-in-up animation-delay-200">
             Passionate about applying my skills to real-world challenges and growing through hands-on experience
           </p>
         </div>
@@ -49,7 +49,8 @@ export const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group glass-card-hover p-8 text-center"
+              className="group glass-card-hover p-8 text-center opacity-0 animate-fade-in-up"
+              style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'forwards' }}
             >
               {/* Icon */}
               <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${service.gradient} p-0.5`}>
@@ -71,7 +72,7 @@ export const ServicesSection = () => {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <div className="glass-card inline-block p-8 max-w-2xl">
+          <div className="glass-card inline-block p-8 max-w-2xl opacity-0 animate-scale-in animation-delay-600">
             <h3 className="font-display text-2xl font-semibold mb-4">
               Interested in working together?
             </h3>

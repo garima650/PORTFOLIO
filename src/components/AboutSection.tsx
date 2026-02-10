@@ -35,13 +35,13 @@ export const AboutSection = () => {
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4 opacity-0 animate-fade-in-up">
             About Me
           </span>
-          <h2 className="section-title">
+          <h2 className="section-title opacity-0 animate-fade-in-up animation-delay-100">
             Passionate About <span className="gradient-text">Innovation</span>
           </h2>
-          <p className="section-subtitle mx-auto mt-4">
+          <p className="section-subtitle mx-auto mt-4 opacity-0 animate-fade-in-up animation-delay-200">
             A curious mind exploring the intersection of technology and artificial intelligence
           </p>
         </div>
@@ -49,7 +49,7 @@ export const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Bio */}
           <div className="space-y-6">
-            <div className="glass-card p-8">
+            <div className="glass-card p-8 opacity-0 animate-slide-in-left animation-delay-300">
               <h3 className="font-display text-2xl font-semibold mb-4">
                 Hello! I'm Garima 👋
               </h3>
@@ -94,7 +94,7 @@ export const AboutSection = () => {
             </div>
 
             {/* Highlights */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 opacity-0 animate-fade-in-up animation-delay-400">
               {highlights.map((item, index) => (
                 <div
                   key={index}
@@ -110,7 +110,7 @@ export const AboutSection = () => {
 
           {/* Education Timeline */}
           <div>
-            <h3 className="font-display text-2xl font-semibold mb-8 flex items-center gap-3">
+            <h3 className="font-display text-2xl font-semibold mb-8 flex items-center gap-3 opacity-0 animate-slide-in-right animation-delay-300">
               <GraduationCap className="text-primary" />
               Education
             </h3>
@@ -124,7 +124,7 @@ export const AboutSection = () => {
                   {/* Timeline dot */}
                   <div className="absolute left-4 top-2 w-4 h-4 rounded-full bg-primary glow-cyan" />
 
-                  <div className="glass-card-hover p-6">
+                  <div className="glass-card-hover p-6 opacity-0 animate-slide-in-right animation-delay-400">
                     <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium mb-3">
                       {item.year}
                     </span>

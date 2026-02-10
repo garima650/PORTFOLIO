@@ -49,7 +49,7 @@ export const AIBanner = () => {
           </div>
 
           {/* Main heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display mb-6 opacity-0 animate-fade-in-up animation-delay-100">
             Building the{' '}
             <span className="gradient-text">Future</span>
             {' '}with{' '}
@@ -57,14 +57,14 @@ export const AIBanner = () => {
           </h2>
 
           {/* Description */}
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto opacity-0 animate-fade-in-up animation-delay-200">
             Passionate about creating intelligent systems that transform ideas into reality. 
             From machine learning models to automation pipelines, I'm on a mission to make 
             technology work smarter.
           </p>
 
           {/* Stats/Features */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 opacity-0 animate-fade-in-up animation-delay-300">
             {[
               { icon: Bot, label: 'AI Projects', value: '5+' },
               { icon: Cpu, label: 'Tech Stack', value: '10+' },
@@ -83,7 +83,7 @@ export const AIBanner = () => {
           </div>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up animation-delay-400">
             <a href="#projects" className="btn-primary-glow group">
               <span className="relative z-10 flex items-center gap-2">
                 <Sparkles className="w-4 h-4" />
