@@ -1,4 +1,11 @@
-import { Bot, Cpu, Sparkles, Zap, BrainCircuit, Cog } from 'lucide-react';
+import {
+  Bot,
+  Cpu,
+  Sparkles,
+  Zap,
+  BrainCircuit,
+  Cog,
+} from 'lucide-react';
 
 const floatingIcons = [
   { Icon: Bot, delay: '0s' },
@@ -9,23 +16,32 @@ const floatingIcons = [
   { Icon: Cog, delay: '2.5s' },
 ];
 
+const stats = [
+  { icon: Bot, label: 'AI Projects', value: '5+' },
+  { icon: Cpu, label: 'Tech Stack', value: '10+' },
+  { icon: Zap, label: 'Automation', value: '100%' },
+  { icon: Cog, label: 'Learning', value: '24/7' },
+];
+
 export const AIBanner = () => {
   return (
-    <section className="relative py-16 overflow-hidden bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10">
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,hsl(var(--primary)/0.05)_25%,hsl(var(--primary)/0.05)_50%,transparent_50%,transparent_75%,hsl(var(--primary)/0.05)_75%)] bg-[length:60px_60px] animate-[gradient-shift_20s_linear_infinite]" />
+    <section className="relative py-8 lg:py-12 overflow-hidden">
+
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-72 h-72 bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute right-1/4 top-1/2 -translate-y-1/2 w-72 h-72 bg-secondary/10 rounded-full blur-[120px]" />
       </div>
 
-      {/* Floating icons */}
+      {/* Floating AI icons */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {floatingIcons.map(({ Icon, delay }, index) => (
           <div
             key={index}
-            className="absolute animate-float opacity-20"
+            className="absolute animate-float opacity-10"
             style={{
-              left: `${10 + index * 15}%`,
-              top: `${20 + (index % 3) * 25}%`,
+              left: `${8 + index * 16}%`,
+              top: `${15 + (index % 3) * 30}%`,
               animationDelay: delay,
               animationDuration: `${4 + index * 0.5}s`,
             }}
@@ -35,73 +51,205 @@ export const AIBanner = () => {
         ))}
       </div>
 
-      {/* Glow effects */}
-      <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[100px]" />
-      <div className="absolute right-1/4 top-1/2 -translate-y-1/2 w-64 h-64 bg-secondary/20 rounded-full blur-[100px]" />
-
       <div className="section-container relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6 animate-pulse-glow">
-            <BrainCircuit className="w-4 h-4" />
-            <span>Powered by AI Innovation</span>
-            <Sparkles className="w-4 h-4" />
-          </div>
 
-          {/* Main heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display mb-6 opacity-0 animate-fade-in-up animation-delay-100">
-            Building the{' '}
-            <span className="gradient-text">Future</span>
-            {' '}with{' '}
-            <span className="gradient-text">AI</span>
-          </h2>
+        {/* Main Card */}
+        <div className="relative group max-w-6xl mx-auto">
 
-          {/* Description */}
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto opacity-0 animate-fade-in-up animation-delay-200">
-            Passionate about creating intelligent systems that transform ideas into reality. 
-            From machine learning models to automation pipelines, I'm on a mission to make 
-            technology work smarter.
-          </p>
+          {/* Subtle glow behind card */}
+          <div
+            className="
+              absolute -inset-1
+              rounded-2xl
+              bg-gradient-to-br from-cyan-500 to-purple-500
+              opacity-10
+              blur-xl
+              transition-opacity duration-500
+              group-hover:opacity-20
+              pointer-events-none
+            "
+          />
 
-          {/* Stats/Features */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 opacity-0 animate-fade-in-up animation-delay-300">
-            {[
-              { icon: Bot, label: 'AI Projects', value: '5+' },
-              { icon: Cpu, label: 'Tech Stack', value: '10+' },
-              { icon: Zap, label: 'Automation', value: '100%' },
-              { icon: Cog, label: 'Learning', value: '24/7' },
-            ].map(({ icon: Icon, label, value }, index) => (
-              <div
-                key={index}
-                className="glass-card p-4 text-center hover:border-primary/30 transition-all duration-300"
+          <div
+            className="
+              relative z-10
+              rounded-2xl
+              border border-border/50
+              bg-background/80
+              backdrop-blur-xl
+              p-8 sm:p-10 lg:p-12
+              transition-all duration-300
+              group-hover:border-primary/30
+            "
+          >
+
+            {/* Badge */}
+            <div className="flex justify-center">
+              <span
+                className="
+                  inline-flex items-center gap-2
+                  px-4 py-2
+                  rounded-xl
+                  bg-primary/10
+                  border border-primary/20
+                  text-primary
+                  text-sm
+                  font-medium
+                "
               >
-                <Icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                <div className="text-2xl font-bold gradient-text">{value}</div>
-                <div className="text-sm text-muted-foreground">{label}</div>
-              </div>
-            ))}
-          </div>
+                <BrainCircuit className="w-4 h-4" />
+                Powered by AI Innovation
+                <Sparkles className="w-4 h-4" />
+              </span>
+            </div>
 
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up animation-delay-400">
-            <a href="#projects" className="btn-primary-glow group">
-              <span className="relative z-10 flex items-center gap-2">
+            {/* Heading */}
+            <div className="text-center mt-6">
+              <h2
+                className="
+                  text-3xl sm:text-4xl lg:text-5xl
+                  font-bold
+                  font-display
+                  leading-tight
+                  opacity-0
+                  animate-fade-in-up
+                  animation-delay-100
+                "
+              >
+                Building the{' '}
+                <span className="gradient-text">Future</span>
+                {' '}with{' '}
+                <span className="gradient-text">AI</span>
+              </h2>
+
+              <p
+                className="
+                  text-base sm:text-lg
+                  text-muted-foreground
+                  max-w-2xl
+                  mx-auto
+                  mt-5
+                  leading-relaxed
+                  opacity-0
+                  animate-fade-in-up
+                  animation-delay-200
+                "
+              >
+                Passionate about creating intelligent systems that transform
+                ideas into reality. From machine learning models to automation
+                pipelines, I'm on a mission to make technology work smarter.
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div
+              className="
+                grid grid-cols-2
+                md:grid-cols-4
+                gap-3 sm:gap-4
+                mt-8
+                opacity-0
+                animate-fade-in-up
+                animation-delay-300
+              "
+            >
+              {stats.map(({ icon: Icon, label, value }, index) => (
+                <div
+                  key={index}
+                  className="
+                    group/stat
+                    rounded-xl
+                    border border-border/50
+                    bg-background/50
+                    backdrop-blur-sm
+                    p-4
+                    text-center
+                    transition-all duration-300
+                    hover:border-primary/30
+                    hover:bg-primary/5
+                  "
+                >
+                  <div
+                    className="
+                      w-10 h-10
+                      mx-auto mb-3
+                      rounded-xl
+                      bg-primary/10
+                      border border-primary/15
+                      flex items-center justify-center
+                    "
+                  >
+                    <Icon className="w-5 h-5 text-primary transition-transform duration-300 group-hover/stat:scale-110" />
+                  </div>
+
+                  <div className="text-2xl font-bold gradient-text">
+                    {value}
+                  </div>
+
+                  <div className="text-xs sm:text-sm text-muted-foreground mt-1">
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div
+              className="
+                flex flex-col sm:flex-row
+                gap-3
+                justify-center
+                mt-8
+                opacity-0
+                animate-fade-in-up
+                animation-delay-400
+              "
+            >
+              <a
+                href="#projects"
+                className="
+                  inline-flex items-center justify-center
+                  gap-2
+                  px-6 py-3
+                  rounded-xl
+                  bg-primary
+                  text-primary-foreground
+                  font-medium
+                  border border-primary/50
+                  transition-all duration-300
+                  hover:shadow-[0_0_25px_hsl(var(--primary)/0.25)]
+                  hover:-translate-y-0.5
+                "
+              >
                 <Sparkles className="w-4 h-4" />
                 Explore My Work
-              </span>
-            </a>
-            <a href="#contact" className="btn-outline-glow">
-              <span className="flex items-center gap-2">
-                <Bot className="w-4 h-4" />
+              </a>
+
+              <a
+                href="#contact"
+                className="
+                  inline-flex items-center justify-center
+                  gap-2
+                  px-6 py-3
+                  rounded-xl
+                  bg-background/50
+                  border border-border/60
+                  text-foreground
+                  font-medium
+                  transition-all duration-300
+                  hover:border-primary/40
+                  hover:bg-primary/5
+                  hover:-translate-y-0.5
+                "
+              >
+                <Bot className="w-4 h-4 text-primary" />
                 Let's Collaborate
-              </span>
-            </a>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
-
-      {/* Bottom border gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
     </section>
   );
 };

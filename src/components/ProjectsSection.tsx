@@ -1,136 +1,219 @@
-import { Brain, Globe, Cpu, ExternalLink, Github, Sparkles } from 'lucide-react';
+import { Brain, Gamepad2, CloudSun, ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: 'AI/ML Experiments',
-    description: 'Exploring machine learning algorithms, building prediction models, and understanding neural network fundamentals.',
+    title: "Tic Tac Toe",
+    description:
+      "A Python-based terminal Tic Tac Toe game built using core programming concepts, game logic, loops, conditions, and user input.",
+    icon: Gamepad2,
+    tags: ["Python", "Game Logic", "Terminal"],
+    status: "Completed",
+    gradient: "from-cyan-500/20 to-blue-500/20",
+    borderGradient: "from-cyan-500 to-blue-500",
+    code: "https://github.com/garima650/Tic-Tac-Toe-game.git",
+    demo: null,
+  },
+  {
+    title: "Hangman Game",
+    description:
+      "A Python terminal Hangman game developed using strings, loops, conditions, user input, and game logic.",
+    icon: Gamepad2,
+    tags: ["Python", "Game Logic", "Terminal"],
+    status: "Completed",
+    gradient: "from-purple-500/20 to-pink-500/20",
+    borderGradient: "from-purple-500 to-pink-500",
+    code: "https://github.com/garima650/HANGMAN-GAME.git",
+    demo: null,
+  },
+  {
+    title: "Weather App",
+    description:
+      "A responsive weather website built using HTML, CSS, and JavaScript that fetches weather information through a weather API.",
+    icon: CloudSun,
+    tags: ["HTML", "CSS", "JavaScript", "API"],
+    status: "Live",
+    gradient: "from-green-500/20 to-teal-500/20",
+    borderGradient: "from-green-500 to-teal-500",
+    code: "https://github.com/garima650/WEATHER-WEBSITE.git",
+    demo: "https://weather-app-ykc6.onrender.com/",
+  },
+  {
+    title: "LAPSPEC",
+    description:
+      "An AI-based application built with Streamlit, involving data processing, machine learning model training, prediction, and an interactive web interface.",
     icon: Brain,
-    tags: ['Python', 'Machine Learning', 'Data Science'],
-    status: 'In Progress',
-    gradient: 'from-cyan-500/20 to-blue-500/20',
-    borderGradient: 'from-cyan-500 to-blue-500',
-  },
-  {
-    title: 'Smart Web Apps',
-    description: 'Developing interactive web applications with modern frameworks and integrating intelligent features.',
-    icon: Globe,
-    tags: ['HTML/CSS', 'JavaScript', 'Responsive Design'],
-    status: 'In Progress',
-    gradient: 'from-purple-500/20 to-pink-500/20',
-    borderGradient: 'from-purple-500 to-pink-500',
-  },
-  {
-    title: 'Automation Tools',
-    description: 'Building scripts and tools to automate repetitive tasks and improve workflow efficiency.',
-    icon: Cpu,
-    tags: ['Python', 'Automation', 'Scripting'],
-    status: 'Coming Soon',
-    gradient: 'from-green-500/20 to-teal-500/20',
-    borderGradient: 'from-green-500 to-teal-500',
+    tags: ["Python", "Streamlit", "Machine Learning", "Model Training"],
+    status: "Project",
+    gradient: "from-orange-500/20 to-red-500/20",
+    borderGradient: "from-orange-500 to-red-500",
+    code: "https://github.com/garima650/LAPSPEC-AI.git",
+    demo: "https://lapspec.streamlit.app/",
   },
 ];
 
-export const ProjectsSection = () => {
+const ProjectsSection = () => {
   return (
-    <section id="projects" className="relative py-20 lg:py-32 overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-primary/10 to-transparent rounded-full blur-[100px]" />
+    <section id="projects" className="relative overflow-hidden">
+      <div className="section-container">
 
-      <div className="section-container relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4 opacity-0 animate-fade-in-up">
-            Portfolio
-          </span>
-          <h2 className="section-title opacity-0 animate-fade-in-up animation-delay-100">
-            Projects <span className="gradient-text">In Progress</span>
+        {/* Section Heading */}
+        <div className="text-center mb-12">
+          <p className="text-primary font-mono text-sm tracking-widest uppercase mb-3">
+            My Work
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            My <span className="gradient-text">Projects</span>
           </h2>
-          <p className="section-subtitle mx-auto mt-4 opacity-0 animate-fade-in-up animation-delay-200">
-            Building exciting solutions and learning through hands-on experience
+
+          <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+            A collection of projects where I explore programming, web
+            development, APIs, artificial intelligence, and machine learning.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group relative opacity-0 animate-fade-in-up"
-              style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'forwards' }}
-            >
-              {/* Gradient border effect */}
-              <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${project.borderGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`} />
-              
-              <div className="glass-card-hover relative p-8 h-full">
-                {/* Status badge */}
-                <div className="absolute top-4 right-4">
-                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
-                    project.status === 'Coming Soon' 
-                      ? 'bg-secondary/20 text-secondary' 
-                      : 'bg-primary/20 text-primary'
-                  }`}>
-                    <Sparkles size={12} />
-                    {project.status}
-                  </span>
-                </div>
+        {/* Projects */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {projects.map((project) => {
+            const Icon = project.icon;
 
-                {/* Icon */}
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <project.icon className="w-7 h-7 text-foreground" />
-                </div>
+            return (
+              <div
+                key={project.title}
+                className="relative group h-full"
+              >
 
-                {/* Content */}
-                <h3 className="font-display text-xl font-semibold mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                  {project.description}
-                </p>
+                {/* Subtle colored glow */}
+                <div
+                  className={`
+                    absolute -inset-1 rounded-2xl
+                    bg-gradient-to-br ${project.borderGradient}
+                    opacity-0
+                    group-hover:opacity-20
+                    blur-lg
+                    transition-opacity duration-500
+                    pointer-events-none
+                  `}
+                />
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground"
-                    >
-                      {tag}
+                {/* Project Card */}
+                <div
+                  className="
+                    relative z-10 h-full
+                    rounded-2xl
+                    border border-border/50
+                    bg-background/80
+                    backdrop-blur-xl
+                    p-6
+                    transition-all duration-300
+                    group-hover:border-primary/30
+                  "
+                >
+
+                  {/* Icon */}
+                  <div
+                    className={`
+                      w-12 h-12
+                      rounded-xl
+                      bg-gradient-to-br ${project.gradient}
+                      flex items-center justify-center
+                      mb-5
+                      transition-transform duration-300
+                      group-hover:scale-105
+                    `}
+                  >
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+
+                  {/* Status */}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-mono text-primary">
+                      {project.status}
                     </span>
-                  ))}
-                </div>
 
-                {/* Links (disabled for now) */}
-                <div className="flex items-center gap-4">
-                  <button
-                    disabled
-                    className="flex items-center gap-2 text-sm text-muted-foreground/50 cursor-not-allowed"
-                  >
-                    <Github size={16} />
-                    Code
-                  </button>
-                  <button
-                    disabled
-                    className="flex items-center gap-2 text-sm text-muted-foreground/50 cursor-not-allowed"
-                  >
-                    <ExternalLink size={16} />
-                    Demo
-                  </button>
+                    <span className="w-2 h-2 rounded-full bg-primary" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    {project.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    {project.description}
+                  </p>
+
+                  {/* Technology Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="
+                          px-2.5 py-1
+                          text-xs font-mono
+                          rounded-md
+                          bg-secondary/70
+                          text-muted-foreground
+                          border border-border/50
+                        "
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Links */}
+                  <div className="mt-auto flex items-center gap-4">
+
+                    <a
+                      href={project.code}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        flex items-center gap-2
+                        text-sm text-foreground
+                        hover:text-primary
+                        transition-colors
+                      "
+                    >
+                      <Github className="w-4 h-4" />
+                      GitHub
+                    </a>
+
+                    {project.demo ? (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+                          flex items-center gap-2
+                          text-sm text-foreground
+                          hover:text-primary
+                          transition-colors
+                          ml-auto
+                        "
+                      >
+                        Live Demo
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    ) : (
+                      <span className="text-xs text-muted-foreground ml-auto">
+                        Terminal Project
+                      </span>
+                    )}
+
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Coming Soon Message */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 border border-primary/20 opacity-0 animate-fade-in-up animation-delay-600">
-            <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
-            <span className="text-muted-foreground">
-              More projects coming soon! Currently building exciting solutions...
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );
 };
+
+export { ProjectsSection };
+export default ProjectsSection;
